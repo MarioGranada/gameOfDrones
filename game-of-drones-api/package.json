@@ -1,0 +1,20 @@
+{
+  "name": "game-of-drones-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mario_Granada",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0"
+  }
+}
