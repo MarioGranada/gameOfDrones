@@ -7,8 +7,16 @@ module.exports = {
   createPlayer: createPlayer,
   savePlayer: savePlayer,
   deletePlayer: deletePlayer,
-  getPlayer: getPlayer
+  getPlayer: getPlayer,
+  getAllPlayers: getAllPlayers
 };
+
+function getAllPlayers(req, res) {
+  Player.find({}, function(err, player) {
+    if (err) res.send(err);
+    res.json(player);
+  });
+}
 
 function createPlayer(req, res) {
   var newPlayer = new Player(req.body);

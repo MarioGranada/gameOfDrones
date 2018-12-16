@@ -11,7 +11,12 @@ var Game = new Schema({
     type: Date,
     default: Date.now
   },
-  rounds: [{ type: Schema.Types.ObjectId, ref: 'Round' }],
+  rounds: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Round'
+    }
+  ],
   winner: {
     type: Schema.Types.ObjectId,
     ref: 'Player'

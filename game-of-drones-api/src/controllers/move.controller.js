@@ -7,8 +7,16 @@ module.exports = {
   createMove: createMove,
   saveMove: saveMove,
   deleteMove: deleteMove,
-  getMove: getMove
+  getMove: getMove,
+  getAllMoves: getAllMoves
 };
+
+function getAllMoves(req, res) {
+  Move.find({}, function(err, move) {
+    if (err) res.send(err);
+    res.json(move);
+  });
+}
 
 function createMove(req, res) {
   var newMove = new Move(req.body);
