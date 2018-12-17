@@ -9,6 +9,7 @@ import { RegisterScreenComponent } from './components/register-screen/register-s
 import { GameScreenComponent } from './components/game-screen/game-screen.component';
 import { GameOverScreenComponent } from './components/game-screen/game-over-screen/game-over-screen.component';
 import { StatisticsScreenComponent } from './components/statistics-screen/statistics-screen.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,13 @@ import { StatisticsScreenComponent } from './components/statistics-screen/statis
     GameOverScreenComponent,
     StatisticsScreenComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, NgbModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    NgbModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

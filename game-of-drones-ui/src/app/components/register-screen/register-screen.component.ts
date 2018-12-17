@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GameOfDronesApiService } from 'src/app/shared/services/game-of-drones-api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,11 +10,7 @@ import { Router } from '@angular/router';
 export class RegisterScreenComponent implements OnInit {
   registerForm: FormGroup;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private GoDApiService: GameOfDronesApiService,
-    private router: Router
-  ) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.createForm();
@@ -29,7 +24,6 @@ export class RegisterScreenComponent implements OnInit {
   }
 
   submit(): void {
-    console.log('in here');
     this.router.navigate([
       '/game',
       this.registerForm.get('playerOne').value.trim(),

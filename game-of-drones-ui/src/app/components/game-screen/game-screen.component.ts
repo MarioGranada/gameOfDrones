@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GameOfDronesApiService } from 'src/app/shared/services/game-of-drones-api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Game } from 'src/app/shared/models/game';
 
 @Component({
   selector: 'app-game-screen',
@@ -19,10 +20,8 @@ export class GameScreenComponent implements OnInit {
     currentPlayer: '',
     currentRound: 1,
     rounds: [],
-    // winner: '',
-    winner: 'mario',
-    // isGameOver: false,
-    isGameOver: true,
+    winner: '',
+    isGameOver: false,
     maxRounds: 4,
     roundToWinGame: 3
   };
@@ -76,6 +75,10 @@ export class GameScreenComponent implements OnInit {
       }
       this.checkGameWinner();
       this.toggleCurrentPlayer();
+    }
+
+    if (this.currentGame.isGameOver) {
+      this.storeGame();
     }
   }
 
@@ -135,4 +138,21 @@ export class GameScreenComponent implements OnInit {
       this.currentGame.isGameOver = true;
     }
   }
+
+  gameToServerShape(game: any): Game {
+    return {
+      winner: game.winner,
+      rounds: game.rounds,
+      players: [game.playerOne, game.playerTwo]
+    } as Game;
+  }
+
+  storeGame(): void {
+    const gameToServer = this.gameToServerShape(this.currentGame);
+    this.GoDApiService.saveGame(gameToServer).subscribe(game => {
+      console.log('stored game', game);
+    });
+  }
+
+  storePlayers(): void {}
 }

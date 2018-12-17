@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
 
 @Injectable()
 class ActivatedRouteStubService {
@@ -45,7 +46,12 @@ describe('GameScreenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, FormsModule, RouterTestingModule],
+      imports: [
+        ReactiveFormsModule,
+        FormsModule,
+        RouterTestingModule,
+        HttpClientModule
+      ],
       declarations: [GameScreenComponent, GameOverScreenStubComponent],
       providers: [{ provide: ActivatedRoute, useValue: activatedRoute }]
     }).compileComponents();

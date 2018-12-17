@@ -19,7 +19,7 @@ var Game = new Schema({
     }
   ],
   winner: {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId | Schema.Types.String,
     ref: 'Player'
   },
   players: [
