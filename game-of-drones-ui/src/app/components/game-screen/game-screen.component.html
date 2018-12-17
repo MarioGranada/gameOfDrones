@@ -1,3 +1,20 @@
-<p>
-  game-screen works!
-</p>
+<form [formGroup]="gameForm">
+  <h1>Round {{ currentGame.currentRound }}</h1>
+  <h2>{{ currentGame.currentPlayer }}, your turn</h2>
+  <fieldset>
+    <label>Select move</label>
+    <select formControlName="moves">
+      <option value="" disabled selected>Select a move</option>
+      <option
+        *ngFor="let move of currentGame.avaiblableGameMoves"
+        [value]="move.name"
+        >{{ move.name | titlecase }}
+      </option>
+    </select>
+  </fieldset>
+  <button (click)="runGame()">Pick Move</button>
+</form>
+<app-game-over-screen
+  [isGameOver]="currentGame.isGameOver"
+  [winner]="currentGame.winner"
+></app-game-over-screen>

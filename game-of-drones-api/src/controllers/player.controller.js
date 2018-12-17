@@ -8,7 +8,8 @@ module.exports = {
   savePlayer: savePlayer,
   deletePlayer: deletePlayer,
   getPlayer: getPlayer,
-  getAllPlayers: getAllPlayers
+  getAllPlayers: getAllPlayers,
+  getPlayerByName: getPlayerByName
 };
 
 function getAllPlayers(req, res) {
@@ -52,6 +53,16 @@ function deletePlayer(req, res) {
 
 function getPlayer(req, res) {
   Player.findById(req.params.playerId, function(err, player) {
+    if (err) res.send(err);
+    res.json(player);
+  });
+}
+
+function getPlayerByName(req, res) {
+  Player.findOne({ name: new RegExp(req.params.name, 'i') }, function(
+    err,
+    player
+  ) {
     if (err) res.send(err);
     res.json(player);
   });

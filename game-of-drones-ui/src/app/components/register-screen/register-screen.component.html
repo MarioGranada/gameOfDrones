@@ -1,3 +1,11 @@
-<p>
-  register-screen works!
-</p>
+<h1>Welcome to Game of Drones</h1>
+<h2>Please enter Players names</h2>
+<form [formGroup]="registerForm">
+  <fieldset>
+    <label>Player 1</label><input type="text" formControlName="playerOne" />
+  </fieldset>
+  <fieldset>
+    <label>Player 2</label><input type="text" formControlName="playerTwo" />
+  </fieldset>
+  <button (click)="submit()">Start</button>
+</form>

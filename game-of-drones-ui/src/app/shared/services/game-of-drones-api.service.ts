@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Observer } from 'rxjs';
 import { Game } from '../models/game';
 import { Round } from '../models/round';
 import { Player } from '../models/player';
+import { Move } from '../models/move';
+import { Moves } from '../mocks/moves.mock';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +30,9 @@ export class GameOfDronesApiService {
 
   public getPlayerByName(playerName): Observable<Player> {
     return of(null);
+  }
+
+  public getMoves(): Observable<Move[]> {
+    return of(Moves);
   }
 }
