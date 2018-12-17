@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameOverScreenComponent } from './game-over-screen.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('GameOverScreenComponent', () => {
   let component: GameOverScreenComponent;
@@ -8,9 +9,9 @@ describe('GameOverScreenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameOverScreenComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+      declarations: [GameOverScreenComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

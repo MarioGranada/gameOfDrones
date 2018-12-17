@@ -33,4 +33,4 @@ For the UI project, run `ng build` in order to build.
 
 ## Running unit tests on UI
 
-For unit testing in the UI run `ng test`.
+For unit testing in the UI, please navigate to `./game-of-drones-ui` and run `ng test --source-map=false`.
