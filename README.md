@@ -21,6 +21,8 @@ API should run on `http://localhost:3000`. Otherwise, it should run on the given
 
 UI should run on `http://localhost:4200` which can be accessed through any browser.
 
+Games Statistics can be found by hitting `http://localhost:4200/statistics`.
+
 #### Note
 Remind to run API prior to UI since the Angular project makes calls to the Node one in order to work.
 
