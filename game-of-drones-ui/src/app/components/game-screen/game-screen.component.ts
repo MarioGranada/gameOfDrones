@@ -83,7 +83,6 @@ export class GameScreenComponent implements OnInit {
 
   switchRound(): void {
     this.currentGame.currentRound++;
-    this.currentGame.currentPlayer = this.currentGame.playerOne;
   }
 
   checkRoundWinner(): void {
@@ -105,6 +104,8 @@ export class GameScreenComponent implements OnInit {
           ? this.currentGame.playerOne
           : this.currentGame.playerTwo;
 
+      console.log('round winner', roundWinner);
+
       this.addRound(this.currentGame.currentRound, roundWinner);
       this.switchRound();
     }
@@ -120,10 +121,12 @@ export class GameScreenComponent implements OnInit {
 
   checkGameWinner(): void {
     if (this.currentGame.currentRound > 3) {
-      let winnerOcurrences = this.currentGame.rounds.filter(item => {
-        item.winner === this.currentGame.playerOne;
-      }); // First attempt with player one, could be anyone.
-
+      console.log(this.currentGame.rounds);
+      let winnerOcurrences = this.currentGame.rounds.filter(
+        item => item.winner === this.currentGame.playerOne
+      ); // First attempt with player one, could be anyone.
+      console.log('ocurrences', winnerOcurrences);
+      console.log('currentGame playerOne', this.currentGame.playerOne);
       this.currentGame.winner =
         winnerOcurrences.length >= 2
           ? this.currentGame.playerOne
