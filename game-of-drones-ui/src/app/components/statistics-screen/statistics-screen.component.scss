@@ -1,0 +1,35 @@
+@import '../../../variables.scss';
+
+:host {
+  padding: 15px;
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+.games-statistics-wrapper {
+  display: block;
+  position: relative;
+}
+.statistics-table {
+  margin: 15px auto;
+  display: block;
+  text-align: center;
+}
+.statistics-row:nth-child(2n + 1) {
+  color: $blue;
+}
+input[type='text'] {
+  max-width: 380px;
+}
+.filter-wrapper {
+  width: 100%;
+  display: inline-block;
+  margin: 15px 15px 15px 0;
+}
+.statistics-header {
+  font-weight: 700;
+}
+.submit-button {
+  margin: 15px;
+  display: inline-block;
+}

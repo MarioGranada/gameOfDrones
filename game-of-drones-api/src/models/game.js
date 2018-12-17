@@ -14,18 +14,18 @@ var Game = new Schema({
   },
   rounds: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Round'
+      type: Object
     }
   ],
   winner: {
-    type: Schema.Types.ObjectId | Schema.Types.String,
-    ref: 'Player'
+    type: String
+  },
+  isOver: {
+    type: Boolean
   },
   players: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Player'
+      type: String
     }
   ]
 });

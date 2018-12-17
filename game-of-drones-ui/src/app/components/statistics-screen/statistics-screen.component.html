@@ -1,0 +1,49 @@
+<h1 class="page-title">Games statistics</h1>
+<div class="games-statistics-wrapper">
+  <h3 class="page-subtitle">Scores</h3>
+  <div class="filter-wrapper">
+    <input type="text" placeholder="Type winner name" #gamesFilter />
+    <button
+      class="btn btn-primary submit-button"
+      (click)="filterByName(gamesFilter.value)"
+    >
+      Filter
+    </button>
+  </div>
+
+  <div
+    class="filtered-data-wrapper"
+    *ngIf="filteredQuery && filteredGames.length > 0"
+  >
+    <div class="filtered-data-subwrapper">
+      <div class="filtered-disclaimer">
+        Filtered games for {{ filteredQuery }}
+      </div>
+      <div class="filtered-rounds-length">
+        Rounds won: {{ filteredGames.length }}
+      </div>
+    </div>
+  </div>
+  <div class="statistics-table">
+    <div class="statistics-header-row row">
+      <div class="statistics-header col-sm-12 col-md-3">ID</div>
+      <div class="statistics-header col-sm-12 col-md-3">Rounds</div>
+      <div class="statistics-header col-sm-12 col-md-3">is Over</div>
+      <div class="statistics-header col-sm-12 col-md-3">Winner</div>
+    </div>
+    <div class="statistics-row row" *ngFor="let statisticRow of filteredGames">
+      <div class="statistics-value col-sm-12 col-md-3 ">
+        {{ statisticRow._id }}
+      </div>
+      <div class="statistics-value col-sm-12 col-md-3 ">
+        {{ statisticRow.rounds.length }}
+      </div>
+      <div class="statistics-value col-sm-12 col-md-3 ">
+        {{ statisticRow.isOver ? 'Yes' : 'No' }}
+      </div>
+      <div class="statistics-value col-sm-12 col-md-3 ">
+        {{ statisticRow.winner }}
+      </div>
+    </div>
+  </div>
+</div>

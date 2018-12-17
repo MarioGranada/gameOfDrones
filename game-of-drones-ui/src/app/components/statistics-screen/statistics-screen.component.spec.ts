@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StatisticsScreenComponent } from './statistics-screen.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('StatisticsScreenComponent', () => {
   let component: StatisticsScreenComponent;
@@ -8,9 +9,9 @@ describe('StatisticsScreenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StatisticsScreenComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientModule],
+      declarations: [StatisticsScreenComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -5,4 +5,5 @@ export class Game {
   rounds: Round[] | any;
   winner: Player | string;
   players: Player[] | any;
+  isOver: boolean;
 }

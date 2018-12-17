@@ -22,7 +22,7 @@ export class GameScreenComponent implements OnInit {
     rounds: [],
     winner: '',
     isGameOver: false,
-    maxRounds: 4,
+    maxRounds: 5, // Increased to 5 in order to ensure there is a winner
     roundToWinGame: 3
   };
 
@@ -120,8 +120,7 @@ export class GameScreenComponent implements OnInit {
   addRound(roundNumber, winner): void {
     this.currentGame.rounds.push({
       winner: winner,
-      number: roundNumber,
-      game: ''
+      number: roundNumber
     });
   }
 

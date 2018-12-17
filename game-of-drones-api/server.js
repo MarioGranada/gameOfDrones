@@ -6,8 +6,7 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   Game = require('./src/models/game.js'),
   Move = require('./src/models/move.js'),
-  Player = require('./src/models/player.js'),
-  Round = require('./src/models/round.js');
+  Player = require('./src/models/player.js');
 
 app.use(cors());
 

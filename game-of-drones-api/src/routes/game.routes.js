@@ -15,8 +15,6 @@ function GameRoutes(app) {
     .delete(game.deleteGame);
 
   app.route('game/:gameId/players').get(game.getGamePlayers);
-
-  app.route('game/:gameId/rounds').get(game.getGameRounds);
 }
 
 module.exports = GameRoutes;

@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import './variables.scss';
+
 body {
-  background: #000;
-  color: #fff;
+  background: $black;
+  color: $white;
 }
 
 .page-title {
@@ -36,5 +38,5 @@ input[type='text'] {
 }
 
 .form-error {
-  color: #ff0000;
+  color: $red;
 }
