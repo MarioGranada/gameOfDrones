@@ -3,18 +3,22 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   cors = require('cors'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  Game = require('./src/models/game.js'),
+  Move = require('./src/models/move.js'),
+  Player = require('./src/models/player.js'),
+  Round = require('./src/models/round.js');
 
 app.use(cors());
-// mongoose instance connection url connection
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/gameOfDronesAPI');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var routes = require('./api/routes/core-routes.js'); //importing route
-routes(app); //register the route
+var routes = require('./src/routes/core.routes.js');
+routes(app);
 
 app.listen(port);
 

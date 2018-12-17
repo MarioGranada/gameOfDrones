@@ -5,8 +5,6 @@ var mongoose = require('mongoose'),
 
 module.exports = {
   createRound: createRound,
-  saveRound: saveRound,
-  deleteRound: deleteRound,
   getRound: getRound
 };
 

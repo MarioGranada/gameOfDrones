@@ -1,9 +1,9 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  Game = mongoose.model('Game');
-Round = mongoose.model('Round');
-Player = mongoose.model('Player');
+  Game = mongoose.model('Game'),
+  Round = mongoose.model('Round'),
+  Player = mongoose.model('Player');
 
 module.exports = {
   createGame: createGame,
