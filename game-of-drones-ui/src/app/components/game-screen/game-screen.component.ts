@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GameOfDronesApiService } from 'src/app/shared/services/game-of-drones-api.service';
-import { Move } from 'src/app/shared/models/move';
 import { ActivatedRoute } from '@angular/router';
-import { Game } from 'src/app/shared/models/game';
 
 @Component({
   selector: 'app-game-screen',
@@ -22,7 +20,9 @@ export class GameScreenComponent implements OnInit {
     currentRound: 1,
     rounds: [],
     winner: '',
-    isGameOver: false
+    isGameOver: false,
+    maxRounds: 4,
+    roundToWinGame: 3
   };
 
   constructor(
@@ -60,7 +60,6 @@ export class GameScreenComponent implements OnInit {
 
   runGame(): void {
     const selectedMove = this.gameForm.get('moves').value;
-    console.log(selectedMove);
 
     if (this.currentGame.currentPlayer === this.currentGame.playerOne) {
       this.currentGame.playerOneMove = selectedMove;
@@ -77,8 +76,6 @@ export class GameScreenComponent implements OnInit {
       this.currentGame.currentPlayer === this.currentGame.playerOne
         ? this.currentGame.playerTwo
         : this.currentGame.playerOne;
-
-    console.log(this.currentGame.currentPlayer);
   }
 
   switchRound(): void {
@@ -104,8 +101,6 @@ export class GameScreenComponent implements OnInit {
           ? this.currentGame.playerOne
           : this.currentGame.playerTwo;
 
-      console.log('round winner', roundWinner);
-
       this.addRound(this.currentGame.currentRound, roundWinner);
       this.switchRound();
     }
@@ -120,15 +115,13 @@ export class GameScreenComponent implements OnInit {
   }
 
   checkGameWinner(): void {
-    if (this.currentGame.currentRound > 3) {
-      console.log(this.currentGame.rounds);
+    if (this.currentGame.currentRound > this.currentGame.maxRounds) {
       let winnerOcurrences = this.currentGame.rounds.filter(
         item => item.winner === this.currentGame.playerOne
       ); // First attempt with player one, could be anyone.
-      console.log('ocurrences', winnerOcurrences);
-      console.log('currentGame playerOne', this.currentGame.playerOne);
+
       this.currentGame.winner =
-        winnerOcurrences.length >= 2
+        winnerOcurrences.length >= this.currentGame.roundToWinGame
           ? this.currentGame.playerOne
           : this.currentGame.playerTwo;
       this.currentGame.isGameOver = true;
