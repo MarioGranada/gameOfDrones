@@ -1,33 +1,37 @@
 <div class="game-wrapper" *ngIf="!currentGame.isGameOver">
-  <form [formGroup]="gameForm">
-    <h1>Round {{ currentGame.currentRound }}</h1>
-    <h2>{{ currentGame.currentPlayer }}, your turn</h2>
-    <fieldset>
-      <label>Select move</label>
-      <select formControlName="moves">
-        <option value="" disabled selected>Select a move</option>
-        <option
-          *ngFor="let move of currentGame.avaiblableGameMoves"
-          [value]="move.name"
-          >{{ move.name | titlecase }}
-        </option>
-      </select>
-    </fieldset>
-    <button (click)="runGame()">Pick Move</button>
-  </form>
-  <div class="current-game-statistics">
-    <h2>Score</h2>
-    <div class="statistics-table">
-      <div class="statistics-header-row">
-        <div class="statistics-header">Round</div>
-        <div class="statistics-header">Winner</div>
-      </div>
-      <div
-        class="statistics-row"
-        *ngFor="let statisticRow of currentGame.rounds"
-      >
-        <div class="statistics-value">{{ statisticRow.number }}</div>
-        <div class="statistics-value">{{ statisticRow.winner }}</div>
+  <div class="game-subwrapper row">
+    <form class="col-sm-12 col-md-6 game-form" [formGroup]="gameForm">
+      <h1 class="page-title">Round {{ currentGame.currentRound }}</h1>
+      <h3 class="page-subtitle">{{ currentGame.currentPlayer }}, your turn</h3>
+      <fieldset class="form-fieldset">
+        <label class="form-label">Select move</label>
+        <select class="form-select" formControlName="moves">
+          <option value="" disabled selected>Select a move</option>
+          <option
+            *ngFor="let move of currentGame.avaiblableGameMoves"
+            [value]="move.name"
+            >{{ move.name | titlecase }}
+          </option>
+        </select>
+      </fieldset>
+      <button class="btn btn-primary submit-button" (click)="runGame()">
+        Pick Move
+      </button>
+    </form>
+    <div class="current-game-statistics col-sm-12 col-md-6">
+      <h3 class="page-subtitle">Score</h3>
+      <div class="statistics-table">
+        <div class="statistics-header-row row">
+          <div class="statistics-header col-6">Round</div>
+          <div class="statistics-header col-6">Winner</div>
+        </div>
+        <div
+          class="statistics-row row"
+          *ngFor="let statisticRow of currentGame.rounds"
+        >
+          <div class="statistics-value col-6">{{ statisticRow.number }}</div>
+          <div class="statistics-value col-6">{{ statisticRow.winner }}</div>
+        </div>
       </div>
     </div>
   </div>

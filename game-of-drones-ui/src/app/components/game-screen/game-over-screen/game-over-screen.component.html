@@ -1,5 +1,10 @@
-<div class="winner-section-wrapper" *ngIf="isGameOver">
-  <h1>Congratulations {{ winner }} you are the winner!!!</h1>
-  <h2>Challenge a new friend, if you dare...</h2>
-  <button (click)="backToStart()">Play Again</button>
+<div class="winner-section-wrapper align-middle" *ngIf="isGameOver">
+  <h1 class="page-title">
+    Congratulations <span class="winner-span">{{ winner }}!!!</span> you are the
+    winner!!!
+  </h1>
+  <h3 class="page-subtitle">Challenge a new friend, if you dare... ;)</h3>
+  <button class="btn btn-primary submit-button" (click)="backToStart()">
+    Play Again
+  </button>
 </div>

@@ -1,11 +1,15 @@
-<h1>Welcome to Game of Drones</h1>
-<h2>Please enter Players names</h2>
-<form [formGroup]="registerForm">
-  <fieldset>
-    <label>Player 1</label><input type="text" formControlName="playerOne" />
+<h1 class="page-title">Welcome to Game of Drones</h1>
+<h3 class="page-subtitle">Please enter players names</h3>
+<form class="register-form" [formGroup]="registerForm">
+  <fieldset class="form-fieldset">
+    <label class="form-label">Player 1</label
+    ><input type="text" formControlName="playerOne" />
   </fieldset>
-  <fieldset>
-    <label>Player 2</label><input type="text" formControlName="playerTwo" />
+  <fieldset class="form-fieldset">
+    <label class="form-label">Player 2</label
+    ><input type="text" formControlName="playerTwo" />
   </fieldset>
-  <button (click)="submit()">Start</button>
+  <button class="btn btn-primary submit-button" (click)="submit()">
+    Start game
+  </button>
 </form>

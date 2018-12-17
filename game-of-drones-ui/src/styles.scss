@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: #000;
+  color: #fff;
+}
+
+.page-title {
+  margin-bottom: 15px;
+}
+
+.page-title,
+.page-subtitle {
+  text-align: center;
+  max-width: 780px;
+  margin: auto;
+}
+
+.submit-button {
+  margin: auto;
+  display: block;
+}
+
+.form-fieldset {
+  padding: 15px 0;
+}
+
+input[type='text'] {
+  width: 100%;
+}
+
+.form-label {
+  padding-right: 15px;
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+}
+
+.form-error {
+  color: #ff0000;
+}

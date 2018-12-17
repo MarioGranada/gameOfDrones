@@ -19,8 +19,10 @@ export class GameScreenComponent implements OnInit {
     currentPlayer: '',
     currentRound: 1,
     rounds: [],
-    winner: '',
-    isGameOver: false,
+    // winner: '',
+    winner: 'mario',
+    // isGameOver: false,
+    isGameOver: true,
     maxRounds: 4,
     roundToWinGame: 3
   };
@@ -37,6 +39,10 @@ export class GameScreenComponent implements OnInit {
     this.createForm();
     this.currentGame.currentRound = 1; // First round
     this.currentGame.currentPlayer = this.currentGame.playerOne; // Player One default to be the first one to choose move.
+  }
+
+  get chosenMove() {
+    return this.gameForm.get('moves');
   }
 
   createForm(): void {
@@ -59,16 +65,18 @@ export class GameScreenComponent implements OnInit {
   }
 
   runGame(): void {
-    const selectedMove = this.gameForm.get('moves').value;
+    const selectedMove = this.chosenMove.value;
 
-    if (this.currentGame.currentPlayer === this.currentGame.playerOne) {
-      this.currentGame.playerOneMove = selectedMove;
-    } else {
-      this.currentGame.playerTwoMove = selectedMove;
-      this.checkRoundWinner();
+    if (selectedMove !== '') {
+      if (this.currentGame.currentPlayer === this.currentGame.playerOne) {
+        this.currentGame.playerOneMove = selectedMove;
+      } else {
+        this.currentGame.playerTwoMove = selectedMove;
+        this.checkRoundWinner();
+      }
+      this.checkGameWinner();
+      this.toggleCurrentPlayer();
     }
-    this.checkGameWinner();
-    this.toggleCurrentPlayer();
   }
 
   toggleCurrentPlayer(): void {
