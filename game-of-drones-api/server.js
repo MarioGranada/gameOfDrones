@@ -12,7 +12,10 @@ var express = require('express'),
 app.use(cors());
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/gameOfDronesAPI');
+mongoose.connect(
+  'mongodb://localhost/gameOfDronesAPI',
+  { useNewUrlParser: true }
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
